@@ -16,23 +16,23 @@ namespace csharp_oop_shop
         private int iva;
 
         //costruttore con descrizione
-        public Prodotto(string nome,string descrizione, double prezzo, int ivaApplicabile)
+        public Prodotto(string nome,string descrizione, double prezzo, int iva)
         {
             this.nome = nome;
             this.prezzo = prezzo; 
             this.descrizione = descrizione;
-            iva = ivaApplicabile;
+            this.iva = iva;
             
             Random rnd = new Random();
 
             codice = rnd.Next(1, 100000000);
         }
         //costruttore senza descizione
-        public Prodotto(string nome, int prezzo, int ivaApplicabile)
+        public Prodotto(string nome, int prezzo, int iva)
         {
             this.nome = nome;
             this.prezzo = prezzo;
-            iva = ivaApplicabile;
+            this.iva = iva;
 
             Random rnd = new Random();
 
@@ -52,10 +52,11 @@ namespace csharp_oop_shop
         {
             return descrizione;
         }
-        public double GetPrezzo()
+        public double GetPrezzoBase()
         {
             return prezzo;
         }
+        
         public int GetIva()
         {
             return iva;
@@ -77,6 +78,20 @@ namespace csharp_oop_shop
         public void CambiaIva(int iva)
         {
             this.iva = iva;
+        }
+
+        //Calcolo prezzo con iva
+        public double CalcolaPrezzoConIva()
+        {
+            double prezzoConIva = prezzo + (prezzo * ((double)iva / 100));
+            return prezzoConIva;
+        }
+
+        //Concatena nome + descrizione prodotto
+        public string ConcatenaNomeDescrizione()
+        {
+            string nomeCompleto = nome + " " + descrizione;
+            return nomeCompleto;
         }
     }
 }
