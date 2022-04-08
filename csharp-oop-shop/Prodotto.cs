@@ -16,7 +16,7 @@ namespace csharp_oop_shop
         private int iva;
 
         //costruttore con descrizione
-        public Prodotto(string nome,string descrizione, int prezzo, int ivaApplicabile)
+        public Prodotto(string nome,string descrizione, double prezzo, int ivaApplicabile)
         {
             this.nome = nome;
             this.prezzo = prezzo; 
@@ -40,7 +40,43 @@ namespace csharp_oop_shop
         }
 
         //Lettura attributi
-        
-        
+        public string GetNome()
+        {
+            return nome;
+        }
+        public int GetCodice()
+        {
+            return codice;
+        }
+        public string GetDescrizione()
+        {
+            return descrizione;
+        }
+        public double GetPrezzo()
+        {
+            return prezzo;
+        }
+        public int GetIva()
+        {
+            return iva;
+        }
+
+        //Scrittura attributi
+        public void CambiaNome(string nome)
+        {
+            this.nome = nome;
+        }
+        public void CambiaDescrizione(string descrizione)
+        {
+            this.descrizione = descrizione;
+        }
+        public void CambiaPrezzo(double prezzo)
+        {
+            this.prezzo = prezzo;
+        }
+        public void CambiaIva(int iva)
+        {
+            this.iva = iva;
+        }
     }
 }
